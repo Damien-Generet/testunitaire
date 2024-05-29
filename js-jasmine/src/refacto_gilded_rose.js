@@ -29,8 +29,6 @@ class Shop {
     return item.name === 'Sulfuras, Hand of Ragnaros';
   }
 
-
-
   updateItemQuality(item) {
     if (item.name === 'Aged Brie') {
       this.increaseQuality(item);
@@ -56,28 +54,19 @@ class Shop {
       this.increaseQuality(item);
     } else if (item.name === 'Backstage passes to a TAFKAL80ETC concert') {
       item.quality = 0;
-      this.items.forEach(item => {
-        if (item.name === "Aged Brie") {
-          item.quality = 0;
-        }
-      })
     } else {
       this.decreaseQuality(item);
     }
   }
 
   increaseQuality(item) {
-    if (item.name === "Aged Brie" && item.quality === 0) {
-      item.quality = 0
-    } else if (item.quality < 50) {
+    if (item.quality < 50) {
       item.quality += 1;
     }
   }
 
   decreaseQuality(item) {
-    if (item.name.startsWith("Conjured") && item.quality > 0 ) {
-        item.quality -= 2;
-    } else if (item.quality > 0) {
+    if (item.quality > 0) {
       item.quality -= 1;
     }
   }
